@@ -1,0 +1,68 @@
+shared.Rank = false;
+shared.Strength = false;
+shared.Sacrifice = false;
+shared.Ascension = false;
+shared.Value = nil;
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Tapping Masters", "DarkTheme")
+local Tab = Window:NewTab("Auto")
+local Section = Tab:NewSection("Autos")
+
+
+--Clicking
+
+Section:NewToggle("Auto Rank", "Ranks for you.", function(state)
+    shared.Rank = state;
+end)
+
+task.spawn(function()
+    while true do
+        if (shared.Rank) then
+            game:GetService("Workspace").Get.rk:FireServer()
+        end;
+        task.wait()
+end
+end)
+
+Section:NewToggle("Auto Strength", "Gets Strength for you.", function(state)
+    shared.Strength = state;
+end)
+
+task.spawn(function()
+    while true do
+        if (shared.Strength) then
+            game:GetService("Workspace").Get.st:FireServer()
+        end;
+        task.wait()
+end
+end)
+
+Section:NewToggle("Auto Sacrifice", "Sacrifices for you.", function(state)
+    shared.Sacrifice = state;
+end)
+
+task.spawn(function()
+    while true do
+        if (shared.Sacrifice) then
+            game:GetService("Workspace").Get.st2:FireServer()
+        end;
+        task.wait()
+end
+end)
+
+Section:NewToggle("Auto Ascension", "Ascends for you.", function(state)
+    shared.Ascension = state;
+end)
+
+task.spawn(function()
+    while true do
+        if (shared.Ascension) then
+            game:GetService("Workspace").Get.asc:FireServer()
+        end;
+        task.wait()
+end
+end)
+
+
+
